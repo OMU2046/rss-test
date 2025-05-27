@@ -1,24 +1,24 @@
 <!DOCTYPE html>
 <html lang="ja">
 <head>
-  <meta charset="UTF-8">
-  <title>RSSテスト</title>
+    <meta charset="UTF-8">
+    <title>RSSテスト</title>
 </head>
 <body>
-  <h1>Yahooニュース(最新記事)</h1>
-  <div id="rss-container"></div>
+    <h1>BBCニュース（最新記事）</h1>
+    <div id="rss-container"></div>
 
-  <script>
- fetch('https://api.rss2json.com/v1/api.json?rss_url=https://news.yahoo.co.jp/rss/topics/top-picks.xml')
-    .then(response => response.json())
-    .then(data => {
-      const container = document.getElementById('rss-container');
-      data.items.forEach(item => {
-        const el = document.createElement('div');
-        el.innerHTML = `<p><a href="${item.link}" target="_blank">${item.title}</a></p>`;
-        container.appendChild(el);
-      });
-    });
-  </script>
+    <script>
+        fetch('https://api.rss2json.com/v1/api.json?rss_url=http://feeds.bbci.co.uk/news/rss.xml')
+            .then(response => response.json())
+            .then(data => {
+                const container = document.getElementById('rss-container');
+                data.items.forEach(item => {
+                    const el = document.createElement('div');
+                    el.innerHTML = `<p><a href="${item.link}" target="_blank">${item.title}</a></p>`;
+                    container.appendChild(el);
+                });
+            });
+    </script>
 </body>
 </html>
