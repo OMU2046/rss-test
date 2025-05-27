@@ -5,11 +5,11 @@
   <title>RSSテスト</title>
 </head>
 <body>
-  <h1>NHKニュース（最新記事）</h1>
+  <h1>Yahooニュース(最新記事)</h1>
   <div id="rss-container"></div>
 
   <script>
-  fetch('https://news.yahoo.co.jp/rss/topics/top-pics.xml')
+ fetch('https://api.rss2json.com/v1/api.json?rss_url=https://news.yahoo.co.jp/rss/topics/top-picks.xml')
     .then(response => response.json())
     .then(data => {
       const container = document.getElementById('rss-container');
