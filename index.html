@@ -9,7 +9,7 @@
   <div id="rss-container"></div>
 
   <script>
-  fetch('https://api.rss2json.com/v1/api.json?rss_url=https://www3.nhk.or.jp/rss/news/cat0.xml')
+  fetch('https://news.yahoo.co.jp/rss/topics/top-pics.xml')
     .then(response => response.json())
     .then(data => {
       const container = document.getElementById('rss-container');
