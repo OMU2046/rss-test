@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <title>RSSテスト</title>
+</head>
+<body>
+  <h1>NHKニュース（最新記事）</h1>
+  <div id="rss-container"></div>
+
+  <script>
+  fetch('https://api.rss2json.com/v1/api.json?rss_url=https://www3.nhk.or.jp/rss/news/cat0.xml')
+    .then(response => response.json())
+    .then(data => {
+      const container = document.getElementById('rss-container');
+      data.items.forEach(item => {
+        const el = document.createElement('div');
+        el.innerHTML = `<p><a href="${item.link}" target="_blank">${item.title}</a></p>`;
+        container.appendChild(el);
+      });
+    });
+  </script>
+</body>
+</html>
